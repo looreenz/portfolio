@@ -1,0 +1,110 @@
+---
+import ReactIcon from "./icons/React.astro";
+import NodeIcon from "./icons/Node.astro";
+import LaravelIcon from "./icons/Laravel.astro";
+import BootstrapIcon from "./icons/Bootstrap.astro";
+import AiIcon from "./icons/AI.astro";
+import RagIcon from "./icons/RAG.astro";
+
+const TAGS = {
+  REACT: {
+    name: "React",
+    class: "bg-blue-400 text-white",
+    icon: ReactIcon,
+  },
+  NODE: {
+    name: "Node.js",
+    class: "bg-green-400 text-white",
+    icon: NodeIcon,
+  },
+  LARAVEL: {
+    name: "Laravel",
+    class: "bg-red-400 text-white",
+    icon: LaravelIcon,
+  },
+  BOOTSTRAP: {
+    name: "Bootstrap",
+    class: "bg-purple-400 text-white",
+    icon: BootstrapIcon,
+  },
+  AI: {
+    name: "AI",
+    class: "bg-yellow-400 text-white",
+    icon: AiIcon,
+  },
+  RAG: {
+    name: "RAG",
+    class: "bg-orange-400 text-white",
+    icon: RagIcon,
+  },
+};
+
+const PROJECTS = [
+  {
+    title: "SemantiQ AI · Sistema de Análisis Inteligente de Documentos",
+    description:
+      "SemantiQ AI es un sistema de análisis inteligente de documentos que permite a los usuarios analizar y extraer información de archivos PDF y TXT usando inteligencia artificial.",
+    link: "",
+    image: "/public/semantiqShot.png",
+    tags: [TAGS.AI, TAGS.RAG, TAGS.REACT, TAGS.LARAVEL, TAGS.BOOTSTRAP],
+  },
+  {
+    title: "StockFlow · Software de Gestión de Almacenes (SGA / WMS)",
+    description:
+      "Aplicación está diseñada para simplificar la recepción, almacenamiento y envío de productos, eliminando el caos y permitiendo un control total de tu inventario desde cualquier lugar. ",
+    link: "https://webapp.daw.iesevalorpego.es/",
+    image: "/public/stockflowShot.png",
+    tags: [TAGS.REACT, TAGS.NODE, TAGS.BOOTSTRAP],
+  },
+];
+---
+
+<div class="flex flex-col gap-y-10">
+  {
+    PROJECTS.map(({ title, description, link, image, tags }) => (
+      <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+        <div class="w-full md:w-1/2">
+          <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+            <img
+              alt="Captura de pantalla de la aplicación"
+              class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+              loading="lazy"
+              src={image}
+            />
+          </div>
+        </div>
+
+        <div class="w-full md:w-1/2 md:max-w-lg">
+          <h3 class="text-2xl font-bold text-orange-300 dark:text-orange-200">
+            <a
+              class="hover:underline"
+              href={link}
+              target="_blank"
+              rel="noopener"
+            >
+              {title}
+            </a>
+          </h3>
+          <div class="flex flex-wrap mt-2">
+            <ul class="flex flex-row mb-2 gap-x-2">
+              {tags.map((tag) => (
+                <li>
+                  <span
+                    class={`flex gap-x-1 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                  >
+                    <tag.icon class="size-4" />
+                    {tag.name}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            <div class="mt-2 text-gray-700 dark:text-gray-400">
+              {description}
+            </div>
+          </div>
+        </div>
+      </article>
+    ))
+  }
+</div>

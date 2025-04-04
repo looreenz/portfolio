@@ -1,0 +1,88 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import Badge from "../components/Badge.astro";
+import LinkedInIcon from "../components/icons/LinkedIn.astro";
+import GitHubIcon from "../components/icons/GitHub.astro";
+import MailIcon from "../components/icons/Mail.astro";
+import BriefcaseIcon from "../components/icons/Briefcase.astro";
+import CodeIcon from "../components/icons/Code.astro";
+import AboutIcon from "../components/icons/About.astro";
+import SocialPill from "../components/SocialPill.astro";
+import Experience from "../components/Experience.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import Projects from "../components/Projects.astro";
+import About from "../components/About.astro";
+---
+
+<Layout>
+  <main class="px-4">
+    <SectionContainer class="py-44 pb-32">
+      <div class="flex gap-4 mb-4 items-center">
+        <img
+          class="rounded-full shadow-lg size-16"
+          src="/public/foto.png"
+          alt="Foto"
+        />
+        <a
+          class="flex items-center transition md:justify-center md:hover:scale-105"
+          href="https://www.linkedin.com/in/lorenzo-cremonese-06b595358/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Badge>Disponible para trabajar</Badge>
+        </a>
+      </div>
+      <h1
+        class="text-3xl md:text-4xl< lg:text-5xl font-bold flex flex-row gap-4 pb-6 lg:pb-10"
+      >
+        Hola, soy Lorenzo
+      </h1>
+      <h2 class="text-xl lg:text-2xl text-wrap max-w-[600px]">
+        Desarrollador de Aplicaciones Web. <br />
+        <span class="opacity-70">Italiano viviendo en España.</span>
+      </h2>
+
+      <nav class="flex gap-4 mt-8 flex-wrap">
+        <SocialPill
+          href="https://www.linkedin.com/in/lorenzo-cremonese-06b595358/"
+        >
+          <LinkedInIcon class="w-6 h-6" />
+          LinkedIn
+        </SocialPill>
+        <SocialPill href="https://github.com/looreenz">
+          <GitHubIcon class="w-6 h-6" />
+          GitHub
+        </SocialPill>
+        <SocialPill href="mailto:lorenzo.cremonese@icloud.com">
+          <MailIcon class="w-6 h-6" />
+          Correo
+        </SocialPill>
+      </nav>
+    </SectionContainer>
+
+    <SectionContainer id="experiencia">
+      <h2 class="text-3xl font-semibold flex gap-x-3 items-center mb-6">
+        <BriefcaseIcon class="size-7" />
+        Experiencia
+      </h2>
+      <Experience />
+    </SectionContainer>
+
+    <SectionContainer id="proyectos">
+      <h2 class="text-3xl font-semibold flex gap-x-3 items-center mb-6">
+        <CodeIcon class="size-7" />
+        Proyectos
+      </h2>
+      <Projects />
+    </SectionContainer>
+
+    <SectionContainer id="sobre-mi">
+      <h2 class="text-3xl font-semibold flex gap-x-3 items-center mb-6">
+        <AboutIcon class="size-7" />
+        Sobre mí
+      </h2>
+      <About />
+    </SectionContainer>
+  </main>
+</Layout>
